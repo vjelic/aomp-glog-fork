@@ -1,0 +1,1318 @@
+{
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Glog.AI",
+          "organization": "Glog.AI",
+          "fullName": "Glog, Making software more secure",
+          "version": "1.0.0",
+          "semanticVersion": "1.0.0",
+          "informationUri": "https://www.glog.ai",
+          "rules": [
+            {
+              "id": "glog-637ed467-2a2f-4b48-85af-f4db22b0a2b1",
+              "help": {
+                "text": "",
+                "markdown": "### Description\n\nThe \"Detected Issue with C Function (malloc)\" vulnerability in C++ arises when the `malloc` function is used improperly, leading to potential memory allocation issues. This can occur due to incorrect size calculations, failure to check for successful memory allocation, or improper handling of the allocated memory. In the provided code snippet, `malloc(NUM * sizeof(float)` is used, which may lead to vulnerabilities if `NUM` is not properly validated or if the result of `malloc` is not checked for `NULL`.\n\n### General Mitigation Advice\n\n1. **Validate Input**: Ensure that `NUM` is a positive integer and within a reasonable range to prevent excessive memory allocation.\n2. **Check Allocation Success**: Always check if `malloc` returns `NULL`, indicating a failure to allocate memory.\n3. **Use Safer Alternatives**: Consider using `new` in C++ for memory allocation, which throws an exception on failure, or use smart pointers for automatic memory management.\n4. **Free Allocated Memory**: Ensure that any allocated memory is properly freed to prevent memory leaks.\n\n### Source Code Fix Recommendation\n\n```cpp\n#include <iostream>\n#include <cstdlib> // Required for malloc and free\n\nint main() {\n    const size_t NUM = 10; // Example size, ensure this is validated\n    float* array = static_cast<float*>(malloc(NUM * sizeof(float)));\n\n    if (array == nullptr) {\n        std::cerr << \"Memory allocation failed\" << std::endl;\n        return 1;\n    }\n\n    // Use the allocated memory\n    for (size_t i = 0; i < NUM; ++i) {\n        array[i] = static_cast<float>(i);\n    }\n\n    // Free the allocated memory\n    free(array);\n\n    return 0;\n}\n```\n\n### Library Dependencies\n\n- `<iostream>`: For input and output operations.\n- `<cstdlib>`: For `malloc` and `free` functions.\n\n### OWASP Resources\n\n- [OWASP Top Ten](https://owasp.org/www-project-top-ten/)\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n\n### Common Weakness Enumeration (CWE)\n"
+              },
+              "properties": {
+                "tags": [
+                  "DS161085"
+                ]
+              }
+            },
+            {
+              "id": "glog-ab5598c6-2abb-49f1-b8b8-cc4c0fe2e6c1",
+              "help": {
+                "text": "",
+                "markdown": "### Description\n\nThe \"Detected Issue with C Function (malloc)\" vulnerability in C++ arises when the `malloc` function is used improperly, leading to potential memory allocation issues. This can occur due to incorrect size calculations, failure to check for successful memory allocation, or improper handling of the allocated memory. In the provided code snippet, `malloc(NUM * sizeof(float)` is used, which may lead to vulnerabilities if `NUM` is not properly validated or if the result of `malloc` is not checked for `NULL`.\n\n### General Mitigation Advice\n\n1. **Validate Input**: Ensure that `NUM` is a positive integer and within a reasonable range to prevent excessive memory allocation.\n2. **Check Allocation Success**: Always check if `malloc` returns `NULL`, indicating a failure to allocate memory.\n3. **Use Safer Alternatives**: Consider using `new` in C++ for memory allocation, which throws an exception on failure, or use smart pointers for automatic memory management.\n4. **Free Allocated Memory**: Ensure that any allocated memory is properly freed to prevent memory leaks.\n\n### Source Code Fix Recommendation\n\n```cpp\n#include <iostream>\n#include <cstdlib> // Required for malloc and free\n\nint main() {\n    const size_t NUM = 10; // Example size, ensure this is validated\n    float* array = static_cast<float*>(malloc(NUM * sizeof(float)));\n\n    if (array == nullptr) {\n        std::cerr << \"Memory allocation failed\" << std::endl;\n        return 1;\n    }\n\n    // Use the allocated memory\n    for (size_t i = 0; i < NUM; ++i) {\n        array[i] = static_cast<float>(i);\n    }\n\n    // Free the allocated memory\n    free(array);\n\n    return 0;\n}\n```\n\n### Library Dependencies\n\n- `<iostream>`: For input and output operations.\n- `<cstdlib>`: For `malloc` and `free` functions.\n\n### OWASP Resources\n\n- [OWASP Top Ten](https://owasp.org/www-project-top-ten/)\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n\n### Common Weakness Enumeration (CWE)\n"
+              },
+              "properties": {
+                "tags": [
+                  "DS161085"
+                ]
+              }
+            },
+            {
+              "id": "glog-4a89d280-9c77-4245-b8ef-25465347d959",
+              "help": {
+                "text": "",
+                "markdown": "### Description\n\nThe \"Detected Issue with C Function (malloc)\" vulnerability in C++ arises when the `malloc` function is used improperly, leading to potential memory allocation issues. This can occur due to incorrect size calculations, failure to check for successful memory allocation, or improper handling of the allocated memory. In the provided code snippet, `malloc(NUM * sizeof(float)` is used, which may lead to vulnerabilities if `NUM` is not properly validated or if the result of `malloc` is not checked for `NULL`.\n\n### General Mitigation Advice\n\n1. **Validate Input**: Ensure that `NUM` is a positive integer and within a reasonable range to prevent excessive memory allocation.\n2. **Check Allocation Success**: Always check if `malloc` returns `NULL`, indicating a failure to allocate memory.\n3. **Use Safer Alternatives**: Consider using `new` in C++ for memory allocation, which throws an exception on failure, or use smart pointers for automatic memory management.\n4. **Free Allocated Memory**: Ensure that any allocated memory is properly freed to prevent memory leaks.\n\n### Source Code Fix Recommendation\n\n```cpp\n#include <iostream>\n#include <cstdlib> // Required for malloc and free\n\nint main() {\n    const size_t NUM = 10; // Example size, ensure this is validated\n    float* array = static_cast<float*>(malloc(NUM * sizeof(float)));\n\n    if (array == nullptr) {\n        std::cerr << \"Memory allocation failed\" << std::endl;\n        return 1;\n    }\n\n    // Use the allocated memory\n    for (size_t i = 0; i < NUM; ++i) {\n        array[i] = static_cast<float>(i);\n    }\n\n    // Free the allocated memory\n    free(array);\n\n    return 0;\n}\n```\n\n### Library Dependencies\n\n- `<iostream>`: For input and output operations.\n- `<cstdlib>`: For `malloc` and `free` functions.\n\n### OWASP Resources\n\n- [OWASP Top Ten](https://owasp.org/www-project-top-ten/)\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n\n### Common Weakness Enumeration (CWE)\n"
+              },
+              "properties": {
+                "tags": [
+                  "DS161085"
+                ]
+              }
+            },
+            {
+              "id": "glog-aced7e92-a8d1-423f-8a8c-4dbc6d22cbdb",
+              "help": {
+                "text": "",
+                "markdown": "### Description\n\nThe \"Detected Issue with C Function (malloc)\" vulnerability in C++ arises when the `malloc` function is used improperly, leading to potential memory allocation issues. This can occur due to incorrect size calculations, failure to check for successful memory allocation, or improper handling of the allocated memory. In the provided code snippet, `malloc(NUM * sizeof(float)` is used, which may lead to vulnerabilities if `NUM` is not properly validated or if the result of `malloc` is not checked for `NULL`.\n\n### General Mitigation Advice\n\n1. **Validate Input**: Ensure that `NUM` is a positive integer and within a reasonable range to prevent excessive memory allocation.\n2. **Check Allocation Success**: Always check if `malloc` returns `NULL`, indicating a failure to allocate memory.\n3. **Use Safer Alternatives**: Consider using `new` in C++ for memory allocation, which throws an exception on failure, or use smart pointers for automatic memory management.\n4. **Free Allocated Memory**: Ensure that any allocated memory is properly freed to prevent memory leaks.\n\n### Source Code Fix Recommendation\n\n```cpp\n#include <iostream>\n#include <cstdlib> // Required for malloc and free\n\nint main() {\n    const size_t NUM = 10; // Example size, ensure this is validated\n    float* array = static_cast<float*>(malloc(NUM * sizeof(float)));\n\n    if (array == nullptr) {\n        std::cerr << \"Memory allocation failed\" << std::endl;\n        return 1;\n    }\n\n    // Use the allocated memory\n    for (size_t i = 0; i < NUM; ++i) {\n        array[i] = static_cast<float>(i);\n    }\n\n    // Free the allocated memory\n    free(array);\n\n    return 0;\n}\n```\n\n### Library Dependencies\n\n- `<iostream>`: For input and output operations.\n- `<cstdlib>`: For `malloc` and `free` functions.\n\n### OWASP Resources\n\n- [OWASP Top Ten](https://owasp.org/www-project-top-ten/)\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n\n### Common Weakness Enumeration (CWE)\n"
+              },
+              "properties": {
+                "tags": [
+                  "DS161085"
+                ]
+              }
+            },
+            {
+              "id": "glog-b5e46960-c480-487f-9005-2dee7c84ff58",
+              "help": {
+                "text": "",
+                "markdown": "### Description\n\nThe \"Detected Issue with C Function (malloc)\" vulnerability in C++ arises when the `malloc` function is used improperly, leading to potential memory allocation issues. This can occur due to incorrect size calculations, failure to check for successful memory allocation, or improper handling of the allocated memory. In the provided code snippet, `malloc(NUM * sizeof(float)` is used, which may lead to vulnerabilities if `NUM` is not properly validated or if the result of `malloc` is not checked for `NULL`.\n\n### General Mitigation Advice\n\n1. **Validate Input**: Ensure that `NUM` is a positive integer and within a reasonable range to prevent excessive memory allocation.\n2. **Check Allocation Success**: Always check if `malloc` returns `NULL`, indicating a failure to allocate memory.\n3. **Use Safer Alternatives**: Consider using `new` in C++ for memory allocation, which throws an exception on failure, or use smart pointers for automatic memory management.\n4. **Free Allocated Memory**: Ensure that any allocated memory is properly freed to prevent memory leaks.\n\n### Source Code Fix Recommendation\n\n```cpp\n#include <iostream>\n#include <cstdlib> // Required for malloc and free\n\nint main() {\n    const size_t NUM = 10; // Example size, ensure this is validated\n    float* array = static_cast<float*>(malloc(NUM * sizeof(float)));\n\n    if (array == nullptr) {\n        std::cerr << \"Memory allocation failed\" << std::endl;\n        return 1;\n    }\n\n    // Use the allocated memory\n    for (size_t i = 0; i < NUM; ++i) {\n        array[i] = static_cast<float>(i);\n    }\n\n    // Free the allocated memory\n    free(array);\n\n    return 0;\n}\n```\n\n### Library Dependencies\n\n- `<iostream>`: For input and output operations.\n- `<cstdlib>`: For `malloc` and `free` functions.\n\n### OWASP Resources\n\n- [OWASP Top Ten](https://owasp.org/www-project-top-ten/)\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n\n### Common Weakness Enumeration (CWE)\n"
+              },
+              "properties": {
+                "tags": [
+                  "DS161085"
+                ]
+              }
+            },
+            {
+              "id": "glog-3a023927-b2a8-4d67-b570-b09d24f9e86c",
+              "help": {
+                "text": "",
+                "markdown": "### Description\n\nThe \"Detected Issue with C Function (malloc)\" vulnerability in C++ arises when the `malloc` function is used improperly, leading to potential memory allocation issues. This can occur due to incorrect size calculations, failure to check for successful memory allocation, or improper handling of the allocated memory. In the provided code snippet, `malloc(NUM * sizeof(float)` is used, which may lead to vulnerabilities if `NUM` is not properly validated or if the result of `malloc` is not checked for `NULL`.\n\n### General Mitigation Advice\n\n1. **Validate Input**: Ensure that `NUM` is a positive integer and within a reasonable range to prevent excessive memory allocation.\n2. **Check Allocation Success**: Always check if `malloc` returns `NULL`, indicating a failure to allocate memory.\n3. **Use Safer Alternatives**: Consider using `new` in C++ for memory allocation, which throws an exception on failure, or use smart pointers for automatic memory management.\n4. **Free Allocated Memory**: Ensure that any allocated memory is properly freed to prevent memory leaks.\n\n### Source Code Fix Recommendation\n\n```cpp\n#include <iostream>\n#include <cstdlib> // Required for malloc and free\n\nint main() {\n    const size_t NUM = 10; // Example size, ensure this is validated\n    float* array = static_cast<float*>(malloc(NUM * sizeof(float)));\n\n    if (array == nullptr) {\n        std::cerr << \"Memory allocation failed\" << std::endl;\n        return 1;\n    }\n\n    // Use the allocated memory\n    for (size_t i = 0; i < NUM; ++i) {\n        array[i] = static_cast<float>(i);\n    }\n\n    // Free the allocated memory\n    free(array);\n\n    return 0;\n}\n```\n\n### Library Dependencies\n\n- `<iostream>`: For input and output operations.\n- `<cstdlib>`: For `malloc` and `free` functions.\n\n### OWASP Resources\n\n- [OWASP Top Ten](https://owasp.org/www-project-top-ten/)\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n\n### Common Weakness Enumeration (CWE)\n"
+              },
+              "properties": {
+                "tags": [
+                  "DS161085"
+                ]
+              }
+            },
+            {
+              "id": "glog-474af17d-d75b-4162-bb07-ab40cb6e0cce",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nThe `malloc(NBytes)` function in C++ is used to dynamically allocate memory at runtime. The function returns a pointer to the first byte of the allocated block. The vulnerability arises when the value of `NBytes` is either not checked or not properly validated, which can lead to various security issues such as buffer overflow, memory corruption, or denial of service.\n\n## Mitigation Advice\n\n1. Always validate the size of memory to be allocated. Avoid allocating very large memory blocks.\n2. Check the return value of `malloc()`. If it returns `NULL`, the memory allocation has failed.\n3. Always free the memory after use to prevent memory leaks.\n4. Consider using functions that limit the amount of memory that can be written, such as `strncpy()` instead of `strcpy()`.\n5. Use modern C++ memory management techniques, such as smart pointers, which automatically manage memory and help prevent leaks.\n\n## Source Code Fix Recommendation\n\nInstead of:\n\n```cpp\nchar *buffer = (char *) malloc(NBytes);\nstrcpy(buffer, user_input);\n```\n\nUse:\n\n```cpp\nchar *buffer = (char *) malloc(NBytes);\nif (buffer == NULL) {\n    // handle error\n}\nstrncpy(buffer, user_input, NBytes - 1);\nbuffer[NBytes - 1] = '\\0';\n```\n\nAnd don't forget to free the memory:\n\n```cpp\nfree(buffer);\nbuffer = NULL;\n```\n\n## Library Dependencies\n\nThe `malloc()` function is part of the C Standard Library, so no additional libraries are needed.\n\n## References\n\n- [CWE-131: Incorrect Calculation of Buffer Size](https://cwe.mitre.org/data/definitions/131.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS161085"
+                ]
+              }
+            },
+            {
+              "id": "glog-d7ee40e1-c23e-4f0b-93f3-784b4f286316",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nThe vulnerability in question is related to the `malloc` function in C++. This function is used to allocate a block of memory dynamically. If the size of the memory to be allocated is not properly validated, it can lead to various security issues such as buffer overflow, memory corruption, and denial of service.\n\nIn the given code snippet `malloc(n*sizeof(Monomer))`, the vulnerability arises if the variable `n` is controlled by the user or an attacker. If `n` is a very large value, it can cause the program to allocate more memory than what is available, leading to a denial of service. If `n` is a negative value, it can lead to memory corruption and potential execution of arbitrary code.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always validate the size of the memory to be allocated. Ensure that the size is not too large to cause a denial of service and not negative to prevent memory corruption. Also, always check the return value of `malloc` to ensure that the memory allocation was successful.\n\n## Source Code Fix Recommendation\n\nHere is a recommended fix for the given code snippet:\n\n```cpp\n#include <stdlib.h>\n#include <limits.h>\n\n// ...\n\nif (n > 0 && n <= INT_MAX/sizeof(Monomer)) {\n    Monomer* monomers = (Monomer*) malloc(n*sizeof(Monomer));\n    if (monomers == NULL) {\n        // Handle memory allocation failure\n    }\n} else {\n    // Handle invalid size\n}\n```\n\nIn this fix, we first check if `n` is a positive value and does not exceed the maximum value that can be allocated. Then, we check if the `malloc` function was successful in allocating the memory.\n\n## Library Dependencies\n\nThe code example requires the following library dependencies:\n\n- stdlib.h: This library is required for the `malloc` function.\n\n## References\n\n- [CWE-131: Incorrect Calculation of Buffer Size](https://cwe.mitre.org/data/definitions/131.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS161085"
+                ]
+              }
+            },
+            {
+              "id": "glog-0b8aa1a3-7567-491a-bd3a-7b6122b05cab",
+              "help": {
+                "text": "",
+                "markdown": "### Description\n\nIn C++ programming, using weak or non-cryptographic random number generators, such as the `rand()` function, can lead to vulnerabilities, especially when randomness is critical for security purposes. The `rand()` function is not suitable for cryptographic purposes because it produces predictable sequences of numbers if the seed is known or can be guessed. This can lead to vulnerabilities in applications where randomness is used for generating keys, tokens, or any other security-related data.\n\n### General Mitigation Advice\n\nTo mitigate this vulnerability, use a cryptographically secure random number generator (CSPRNG) instead of `rand()`. In C++, the `<random>` library provides better alternatives, such as `std::random_device` and `std::mt19937`, which can be used to generate random numbers with better randomness properties.\n\n### Source Code Fix Recommendation\n\nReplace the use of `rand() %` with a more secure random number generation approach using the `<random>` library. Below is an example of how to replace `rand()` with a CSPRNG:\n\n```cpp\n#include <iostream>\n#include <random>\n\nint main() {\n    // Create a random device and a Mersenne Twister engine\n    std::random_device rd;\n    std::mt19937 gen(rd());\n\n    // Define the range for random numbers\n    std::uniform_int_distribution<> dis(0, 99); // Example range [0, 99]\n\n    // Generate a random number\n    int random_number = dis(gen);\n\n    std::cout << \"Secure random number: \" << random_number << std::endl;\n\n    return 0;\n}\n```\n\n### Library Dependencies\n\nTo execute the above code example, the following library is required:\n\n- `<random>`: This is part of the C++ Standard Library and does not require any additional dependencies beyond a standard C++ compiler that supports C++11 or later.\n\n### Relevant Links\n\n- [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)\n- [CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)](https://cwe.mitre.org/data/definitions/338.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "glog-e9075b52-9ff0-4677-8ae8-8cbdc42d2ad2",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nThe `malloc` function in C is used to dynamically allocate memory at runtime. The vulnerability arises when the argument passed to `malloc` is not properly validated or controlled. This can lead to several types of vulnerabilities, including buffer overflows, integer overflows, and memory corruption. In the provided sink, `malloc(*bytes)`, the argument `*bytes` is dereferenced without any checks, which can lead to undefined behavior if the pointer is null or points to an invalid memory location.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always validate and control the arguments passed to `malloc`. This includes checking for null pointers, ensuring the size argument is not excessively large (which could cause an integer overflow), and ensuring the size argument is not zero (which is undefined behavior in C).\n\n## Source Code Fix Recommendation\n\nHere is a simple fix for the provided sink:\n\n```c++\nif (bytes == NULL) {\n    // Handle error\n} else if (*bytes <= 0 || *bytes > MAX_SIZE) {\n    // Handle error\n} else {\n    void* ptr = malloc(*bytes);\n    if (ptr == NULL) {\n        // Handle error\n    } else {\n        // Use ptr\n    }\n}\n```\n\nIn this code, `MAX_SIZE` should be a constant that represents the maximum reasonable size for an allocation in your program.\n\n## Library Dependencies\n\nThe `malloc` function is part of the C standard library, so no additional library dependencies are required.\n\n## OWASP Resources\n\n- [OWASP C/C++ Vulnerability Guide](https://owasp.org/www-pdf-archive/OWASP_SCP_Quick_Reference_Guide_v2.pdf)\n\n## Common Weakness Enumeration (CWE)\n\n- [CWE-131: Incorrect Calculation of Buffer Size](https://cwe.mitre.org/data/definitions/131.html)\n- [CWE-680: Integer Overflow to Buffer Overflow](https://cwe.mitre.org/data/definitions/680.html)\n- [CWE-476: NULL Pointer Dereference](https://cwe.mitre.org/data/definitions/476.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS161085"
+                ]
+              }
+            },
+            {
+              "id": "glog-4ed8967f-357a-499c-8d83-e0e59523bdee",
+              "help": {
+                "text": "",
+                "markdown": "### Description\n\nIn C++ programming, using `srand(time(NULL))` or a fixed value to seed randomness can lead to predictable random number sequences. This is a security vulnerability because attackers can predict the sequence of random numbers generated, which can be exploited in various ways, such as guessing session tokens, cryptographic keys, or other sensitive data that rely on randomness for security.\n\n### General Mitigation Advice\n\nTo mitigate this vulnerability, use a more secure source of randomness for seeding. On modern systems, you can use libraries that provide cryptographically secure random number generators. For example, C++11 and later versions offer the `<random>` library, which can be used to generate random numbers securely.\n\n### Source Code Fix Recommendation\n\nInstead of using `srand(time(NULL))`, use the `<random>` library to generate random numbers securely. Here is an example of how to do this:\n\n```cpp\n#include <iostream>\n#include <random>\n\nint main() {\n    // Create a random device and seed the random number generator\n    std::random_device rd;\n    std::mt19937 gen(rd());\n\n    // Define the range for random numbers\n    std::uniform_int_distribution<> dis(1, 100);\n\n    // Generate a random number\n    int random_number = dis(gen);\n\n    std::cout << \"Random number: \" << random_number << std::endl;\n\n    return 0;\n}\n```\n\n### Library Dependencies\n\nTo execute the above code properly, the following library dependencies are required:\n\n- `<iostream>`: For input and output stream operations.\n- `<random>`: For generating random numbers using modern C++ facilities.\n\n### OWASP Resources\n\n- [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)\n- [OWASP Secure Coding Practices - Quick Reference Guide](https://owasp.org/www-pdf-archive/OWASP_SCP_Quick_Reference_Guide_v2.pdf)\n\n### Common Weakness Enumeration (CWE)\n\n- [CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)](https://cwe.mitre.org/data/definitions/338.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS149435"
+                ]
+              }
+            },
+            {
+              "id": "glog-39be8a03-6255-4a7c-a045-9151dfcd93e2",
+              "help": {
+                "text": "",
+                "markdown": "### Description\n\nThe \"Detected Issue with C Function (malloc)\" vulnerability in C++ arises when the `malloc` function is used improperly, leading to potential memory allocation issues. This can occur due to incorrect size calculations, failure to check for successful memory allocation, or improper handling of the allocated memory. In the provided code snippet, `malloc(NUM * sizeof(float)` is used, which may lead to vulnerabilities if `NUM` is not properly validated or if the result of `malloc` is not checked for `NULL`.\n\n### General Mitigation Advice\n\n1. **Validate Input**: Ensure that `NUM` is a positive integer and within a reasonable range to prevent excessive memory allocation.\n2. **Check Allocation Success**: Always check if `malloc` returns `NULL`, indicating a failure to allocate memory.\n3. **Use Safer Alternatives**: Consider using `new` in C++ for memory allocation, which throws an exception on failure, or use smart pointers for automatic memory management.\n4. **Free Allocated Memory**: Ensure that any allocated memory is properly freed to prevent memory leaks.\n\n### Source Code Fix Recommendation\n\n```cpp\n#include <iostream>\n#include <cstdlib> // Required for malloc and free\n\nint main() {\n    const size_t NUM = 10; // Example size, ensure this is validated\n    float* array = static_cast<float*>(malloc(NUM * sizeof(float)));\n\n    if (array == nullptr) {\n        std::cerr << \"Memory allocation failed\" << std::endl;\n        return 1;\n    }\n\n    // Use the allocated memory\n    for (size_t i = 0; i < NUM; ++i) {\n        array[i] = static_cast<float>(i);\n    }\n\n    // Free the allocated memory\n    free(array);\n\n    return 0;\n}\n```\n\n### Library Dependencies\n\n- `<iostream>`: For input and output operations.\n- `<cstdlib>`: For `malloc` and `free` functions.\n\n### OWASP Resources\n\n- [OWASP Top Ten](https://owasp.org/www-project-top-ten/)\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n\n### Common Weakness Enumeration (CWE)\n"
+              },
+              "properties": {
+                "tags": [
+                  "DS161085"
+                ]
+              }
+            },
+            {
+              "id": "glog-59dba1f6-390c-4c0d-84fa-28fe0922e4db",
+              "help": {
+                "text": "",
+                "markdown": "### Description\n\nThe \"Detected Issue with C Function (malloc)\" vulnerability in C++ arises when the `malloc` function is used improperly, leading to potential memory allocation issues. This can occur due to incorrect size calculations, failure to check for successful memory allocation, or improper handling of the allocated memory. In the provided code snippet, `malloc(NUM * sizeof(float)` is used, which may lead to vulnerabilities if `NUM` is not properly validated or if the result of `malloc` is not checked for `NULL`.\n\n### General Mitigation Advice\n\n1. **Validate Input**: Ensure that `NUM` is a positive integer and within a reasonable range to prevent excessive memory allocation.\n2. **Check Allocation Success**: Always check if `malloc` returns `NULL`, indicating a failure to allocate memory.\n3. **Use Safer Alternatives**: Consider using `new` in C++ for memory allocation, which throws an exception on failure, or use smart pointers for automatic memory management.\n4. **Free Allocated Memory**: Ensure that any allocated memory is properly freed to prevent memory leaks.\n\n### Source Code Fix Recommendation\n\n```cpp\n#include <iostream>\n#include <cstdlib> // Required for malloc and free\n\nint main() {\n    const size_t NUM = 10; // Example size, ensure this is validated\n    float* array = static_cast<float*>(malloc(NUM * sizeof(float)));\n\n    if (array == nullptr) {\n        std::cerr << \"Memory allocation failed\" << std::endl;\n        return 1;\n    }\n\n    // Use the allocated memory\n    for (size_t i = 0; i < NUM; ++i) {\n        array[i] = static_cast<float>(i);\n    }\n\n    // Free the allocated memory\n    free(array);\n\n    return 0;\n}\n```\n\n### Library Dependencies\n\n- `<iostream>`: For input and output operations.\n- `<cstdlib>`: For `malloc` and `free` functions.\n\n### OWASP Resources\n\n- [OWASP Top Ten](https://owasp.org/www-project-top-ten/)\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n\n### Common Weakness Enumeration (CWE)\n"
+              },
+              "properties": {
+                "tags": [
+                  "DS161085"
+                ]
+              }
+            },
+            {
+              "id": "glog-452d94e5-61f7-4b04-8647-fa112c0bf894",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nThe `malloc(NBytes)` function in C++ is used to dynamically allocate memory at runtime. The function returns a pointer to the first byte of the allocated block. The vulnerability arises when the value of `NBytes` is either not checked or not properly validated, which can lead to various security issues such as buffer overflow, memory corruption, or denial of service.\n\n## Mitigation Advice\n\n1. Always validate the size of memory to be allocated. Avoid allocating very large memory blocks.\n2. Check the return value of `malloc()`. If it returns `NULL`, the memory allocation has failed.\n3. Always free the memory after use to prevent memory leaks.\n4. Consider using functions that limit the amount of memory that can be written, such as `strncpy()` instead of `strcpy()`.\n5. Use modern C++ memory management techniques, such as smart pointers, which automatically manage memory and help prevent leaks.\n\n## Source Code Fix Recommendation\n\nInstead of:\n\n```cpp\nchar *buffer = (char *) malloc(NBytes);\nstrcpy(buffer, user_input);\n```\n\nUse:\n\n```cpp\nchar *buffer = (char *) malloc(NBytes);\nif (buffer == NULL) {\n    // handle error\n}\nstrncpy(buffer, user_input, NBytes - 1);\nbuffer[NBytes - 1] = '\\0';\n```\n\nAnd don't forget to free the memory:\n\n```cpp\nfree(buffer);\nbuffer = NULL;\n```\n\n## Library Dependencies\n\nThe `malloc()` function is part of the C Standard Library, so no additional libraries are needed.\n\n## References\n\n- [CWE-131: Incorrect Calculation of Buffer Size](https://cwe.mitre.org/data/definitions/131.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS161085"
+                ]
+              }
+            },
+            {
+              "id": "glog-a4f4e6e6-7ef2-4404-b319-ebd16dc16429",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nThe `malloc(NBytes)` function in C++ is used to dynamically allocate memory at runtime. The function returns a pointer to the first byte of the allocated block. The vulnerability arises when the value of `NBytes` is either not checked or not properly validated, which can lead to various security issues such as buffer overflow, memory corruption, or denial of service.\n\n## Mitigation Advice\n\n1. Always validate the size of memory to be allocated. Avoid allocating very large memory blocks.\n2. Check the return value of `malloc()`. If it returns `NULL`, the memory allocation has failed.\n3. Always free the memory after use to prevent memory leaks.\n4. Consider using functions that limit the amount of memory that can be written, such as `strncpy()` instead of `strcpy()`.\n5. Use modern C++ memory management techniques, such as smart pointers, which automatically manage memory and help prevent leaks.\n\n## Source Code Fix Recommendation\n\nInstead of:\n\n```cpp\nchar *buffer = (char *) malloc(NBytes);\nstrcpy(buffer, user_input);\n```\n\nUse:\n\n```cpp\nchar *buffer = (char *) malloc(NBytes);\nif (buffer == NULL) {\n    // handle error\n}\nstrncpy(buffer, user_input, NBytes - 1);\nbuffer[NBytes - 1] = '\\0';\n```\n\nAnd don't forget to free the memory:\n\n```cpp\nfree(buffer);\nbuffer = NULL;\n```\n\n## Library Dependencies\n\nThe `malloc()` function is part of the C Standard Library, so no additional libraries are needed.\n\n## References\n\n- [CWE-131: Incorrect Calculation of Buffer Size](https://cwe.mitre.org/data/definitions/131.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS161085"
+                ]
+              }
+            },
+            {
+              "id": "glog-f659cb64-1fe8-45ee-96da-277b2cdb39b3",
+              "help": {
+                "text": "",
+                "markdown": "### Description\n\nIn C++ programming, using weak or non-cryptographic random number generators, such as the `rand()` function, can lead to vulnerabilities, especially in security-sensitive applications. The `rand()` function is not suitable for cryptographic purposes because it generates predictable sequences of numbers if the seed is known. This predictability can be exploited by attackers to compromise the security of the application.\n\n### General Mitigation Advice\n\nTo mitigate this vulnerability, use a cryptographically secure random number generator. In C++, the `<random>` library provides better alternatives, such as `std::random_device` and `std::mt19937`, which can be used to generate random numbers more securely.\n\n### Source Code Fix Recommendation\n\nReplace the use of `rand()` with a more secure random number generator from the `<random>` library. Here is an example of how to do this:\n\n```cpp\n#include <iostream>\n#include <random>\n\nint main() {\n    // Create a random device and a Mersenne Twister random number generator\n    std::random_device rd;\n    std::mt19937 gen(rd());\n\n    // Define a distribution range\n    std::uniform_int_distribution<> dis(1, 100);\n\n    // Generate a random number\n    int random_number = dis(gen);\n\n    std::cout << \"Secure random number: \" << random_number << std::endl;\n\n    return 0;\n}\n```\n\n### Library Dependencies\n\nTo execute the above code example properly, the following library is required:\n\n- `<random>`: This library provides facilities for generating random numbers.\n\n### OWASP Resources\n\n- [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)\n\n### Common Weakness Enumeration (CWE)\n\n- [CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)](https://cwe.mitre.org/data/definitions/338.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "glog-33251de2-5324-48cc-a517-4e0365165fcd",
+              "help": {
+                "text": "",
+                "markdown": "### Description\n\nIn C++ programming, using weak or non-cryptographic random number generators, such as the `rand()` function, can lead to vulnerabilities, especially in security-sensitive applications. The `rand()` function is not suitable for cryptographic purposes because it generates predictable sequences of numbers if the seed is known. This predictability can be exploited by attackers to compromise the security of the application.\n\n### General Mitigation Advice\n\nTo mitigate this vulnerability, use a cryptographically secure random number generator. In C++, the `<random>` library provides better alternatives, such as `std::random_device` and `std::mt19937`, which can be used to generate random numbers more securely.\n\n### Source Code Fix Recommendation\n\nReplace the use of `rand()` with a more secure random number generator from the `<random>` library. Here is an example of how to do this:\n\n```cpp\n#include <iostream>\n#include <random>\n\nint main() {\n    // Create a random device and a Mersenne Twister random number generator\n    std::random_device rd;\n    std::mt19937 gen(rd());\n\n    // Define a distribution range\n    std::uniform_int_distribution<> dis(1, 100);\n\n    // Generate a random number\n    int random_number = dis(gen);\n\n    std::cout << \"Secure random number: \" << random_number << std::endl;\n\n    return 0;\n}\n```\n\n### Library Dependencies\n\nTo execute the above code example properly, the following library is required:\n\n- `<random>`: This library provides facilities for generating random numbers.\n\n### OWASP Resources\n\n- [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)\n\n### Common Weakness Enumeration (CWE)\n\n- [CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)](https://cwe.mitre.org/data/definitions/338.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS148264"
+                ]
+              }
+            },
+            {
+              "id": "glog-76a92d6a-d4ab-4a12-82e4-da23fee82339",
+              "help": {
+                "text": "",
+                "markdown": "### Description\n\nThe \"Detected Issue with C Function (malloc)\" vulnerability in C++ arises when the `malloc` function is used improperly, leading to potential memory allocation issues. This can occur due to incorrect size calculations, failure to check for successful memory allocation, or improper handling of the allocated memory. In the provided code snippet, `malloc(NUM * sizeof(float)` is used, which may lead to vulnerabilities if `NUM` is not properly validated or if the result of `malloc` is not checked for `NULL`.\n\n### General Mitigation Advice\n\n1. **Validate Input**: Ensure that `NUM` is a positive integer and within a reasonable range to prevent excessive memory allocation.\n2. **Check Allocation Success**: Always check if `malloc` returns `NULL`, indicating a failure to allocate memory.\n3. **Use Safer Alternatives**: Consider using `new` in C++ for memory allocation, which throws an exception on failure, or use smart pointers for automatic memory management.\n4. **Free Allocated Memory**: Ensure that any allocated memory is properly freed to prevent memory leaks.\n\n### Source Code Fix Recommendation\n\n```cpp\n#include <iostream>\n#include <cstdlib> // Required for malloc and free\n\nint main() {\n    const size_t NUM = 10; // Example size, ensure this is validated\n    float* array = static_cast<float*>(malloc(NUM * sizeof(float)));\n\n    if (array == nullptr) {\n        std::cerr << \"Memory allocation failed\" << std::endl;\n        return 1;\n    }\n\n    // Use the allocated memory\n    for (size_t i = 0; i < NUM; ++i) {\n        array[i] = static_cast<float>(i);\n    }\n\n    // Free the allocated memory\n    free(array);\n\n    return 0;\n}\n```\n\n### Library Dependencies\n\n- `<iostream>`: For input and output operations.\n- `<cstdlib>`: For `malloc` and `free` functions.\n\n### OWASP Resources\n\n- [OWASP Top Ten](https://owasp.org/www-project-top-ten/)\n- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)\n\n### Common Weakness Enumeration (CWE)\n"
+              },
+              "properties": {
+                "tags": [
+                  "DS161085"
+                ]
+              }
+            }
+          ],
+          "language": "en-US",
+          "contents": [
+            "localizedData",
+            "nonLocalizedData"
+          ],
+          "isComprehensive": false
+        }
+      },
+      "language": "en-US",
+      "results": [
+        {
+          "ruleId": "glog-ab5598c6-2abb-49f1-b8b8-cc4c0fe2e6c1",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "\"Detected Issue with C Function (malloc)\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/tools/roctracer/MatrixTranspose_test/MatrixTranspose.c"
+                },
+                "region": {
+                  "startLine": 146,
+                  "startColumn": 33,
+                  "endLine": 146,
+                  "endColumn": 59,
+                  "charOffset": 3928,
+                  "charLength": 26,
+                  "snippet": {
+                    "text": "malloc(NUM * sizeof(float)",
+                    "rendered": {
+                      "text": "malloc(NUM * sizeof(float)",
+                      "markdown": "`malloc(NUM * sizeof(float)`"
+                    }
+                  },
+                  "sourceLanguage": "c"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If the value provided to malloc is the result of unsafe integer math, it can result in an exploitable condition. "
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "examples/tools/roctracer/MatrixTranspose_test/MatrixTranspose.c"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 3928,
+                        "charLength": 26
+                      },
+                      "insertedContent": {
+                        "text": "calloc(<number of elements>, <size of each element>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-637ed467-2a2f-4b48-85af-f4db22b0a2b1",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "\"Detected Issue with C Function (malloc)\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/tools/roctracer/MatrixTranspose_test/MatrixTranspose.c"
+                },
+                "region": {
+                  "startLine": 144,
+                  "startColumn": 21,
+                  "endLine": 144,
+                  "endColumn": 47,
+                  "charOffset": 3807,
+                  "charLength": 26,
+                  "snippet": {
+                    "text": "malloc(NUM * sizeof(float)",
+                    "rendered": {
+                      "text": "malloc(NUM * sizeof(float)",
+                      "markdown": "`malloc(NUM * sizeof(float)`"
+                    }
+                  },
+                  "sourceLanguage": "c"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If the value provided to malloc is the result of unsafe integer math, it can result in an exploitable condition. "
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "examples/tools/roctracer/MatrixTranspose_test/MatrixTranspose.c"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 3807,
+                        "charLength": 26
+                      },
+                      "insertedContent": {
+                        "text": "calloc(<number of elements>, <size of each element>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-4a89d280-9c77-4245-b8ef-25465347d959",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "\"Detected Issue with C Function (malloc)\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/tools/roctracer/MatrixTranspose_test/MatrixTranspose.cpp"
+                },
+                "region": {
+                  "startLine": 146,
+                  "startColumn": 33,
+                  "endLine": 146,
+                  "endColumn": 59,
+                  "charOffset": 3928,
+                  "charLength": 26,
+                  "snippet": {
+                    "text": "malloc(NUM * sizeof(float)",
+                    "rendered": {
+                      "text": "malloc(NUM * sizeof(float)",
+                      "markdown": "`malloc(NUM * sizeof(float)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If the value provided to malloc is the result of unsafe integer math, it can result in an exploitable condition. "
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "examples/tools/roctracer/MatrixTranspose_test/MatrixTranspose.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 3928,
+                        "charLength": 26
+                      },
+                      "insertedContent": {
+                        "text": "calloc(<number of elements>, <size of each element>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-aced7e92-a8d1-423f-8a8c-4dbc6d22cbdb",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "\"Detected Issue with C Function (malloc)\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/tools/roctracer/MatrixTranspose_test/MatrixTranspose.c"
+                },
+                "region": {
+                  "startLine": 145,
+                  "startColumn": 30,
+                  "endLine": 145,
+                  "endColumn": 56,
+                  "charOffset": 3866,
+                  "charLength": 26,
+                  "snippet": {
+                    "text": "malloc(NUM * sizeof(float)",
+                    "rendered": {
+                      "text": "malloc(NUM * sizeof(float)",
+                      "markdown": "`malloc(NUM * sizeof(float)`"
+                    }
+                  },
+                  "sourceLanguage": "c"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If the value provided to malloc is the result of unsafe integer math, it can result in an exploitable condition. "
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "examples/tools/roctracer/MatrixTranspose_test/MatrixTranspose.c"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 3866,
+                        "charLength": 26
+                      },
+                      "insertedContent": {
+                        "text": "calloc(<number of elements>, <size of each element>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-b5e46960-c480-487f-9005-2dee7c84ff58",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "\"Detected Issue with C Function (malloc)\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/tools/roctracer/MatrixTranspose_test/MatrixTranspose.cpp"
+                },
+                "region": {
+                  "startLine": 144,
+                  "startColumn": 21,
+                  "endLine": 144,
+                  "endColumn": 47,
+                  "charOffset": 3807,
+                  "charLength": 26,
+                  "snippet": {
+                    "text": "malloc(NUM * sizeof(float)",
+                    "rendered": {
+                      "text": "malloc(NUM * sizeof(float)",
+                      "markdown": "`malloc(NUM * sizeof(float)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If the value provided to malloc is the result of unsafe integer math, it can result in an exploitable condition. "
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "examples/tools/roctracer/MatrixTranspose_test/MatrixTranspose.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 3807,
+                        "charLength": 26
+                      },
+                      "insertedContent": {
+                        "text": "calloc(<number of elements>, <size of each element>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-3a023927-b2a8-4d67-b570-b09d24f9e86c",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "\"Detected Issue with C Function (malloc)\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/tools/roctracer/MatrixTranspose_test/MatrixTranspose.cpp"
+                },
+                "region": {
+                  "startLine": 145,
+                  "startColumn": 30,
+                  "endLine": 145,
+                  "endColumn": 56,
+                  "charOffset": 3866,
+                  "charLength": 26,
+                  "snippet": {
+                    "text": "malloc(NUM * sizeof(float)",
+                    "rendered": {
+                      "text": "malloc(NUM * sizeof(float)",
+                      "markdown": "`malloc(NUM * sizeof(float)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If the value provided to malloc is the result of unsafe integer math, it can result in an exploitable condition. "
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "examples/tools/roctracer/MatrixTranspose_test/MatrixTranspose.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 3866,
+                        "charLength": 26
+                      },
+                      "insertedContent": {
+                        "text": "calloc(<number of elements>, <size of each element>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-474af17d-d75b-4162-bb07-ab40cb6e0cce",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "Detected Vulnerability in C Function (malloc)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/tools/asan/heap_buffer_overflow/hip/vectorAdd-HBO.cpp"
+                },
+                "region": {
+                  "startLine": 98,
+                  "startColumn": 20,
+                  "endLine": 98,
+                  "endColumn": 34,
+                  "charOffset": 2807,
+                  "charLength": 14,
+                  "snippet": {
+                    "text": "malloc(NBytes)",
+                    "rendered": {
+                      "text": "malloc(NBytes)",
+                      "markdown": "`malloc(NBytes)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If the value provided to malloc is the result of unsafe integer math, it can result in an exploitable condition. "
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "examples/tools/asan/heap_buffer_overflow/hip/vectorAdd-HBO.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 2807,
+                        "charLength": 14
+                      },
+                      "insertedContent": {
+                        "text": "calloc(<number of elements>, <size of each element>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-d7ee40e1-c23e-4f0b-93f3-784b4f286316",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "Detected Vulnerability in C Function (malloc)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/hip/structWithPointersUM/um.cpp"
+                },
+                "region": {
+                  "startLine": 91,
+                  "startColumn": 41,
+                  "endLine": 91,
+                  "endColumn": 65,
+                  "charOffset": 2640,
+                  "charLength": 24,
+                  "snippet": {
+                    "text": "malloc(n*sizeof(Monomer)",
+                    "rendered": {
+                      "text": "malloc(n*sizeof(Monomer)",
+                      "markdown": "`malloc(n*sizeof(Monomer)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If the value provided to malloc is the result of unsafe integer math, it can result in an exploitable condition. "
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "examples/hip/structWithPointersUM/um.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 2640,
+                        "charLength": 24
+                      },
+                      "insertedContent": {
+                        "text": "calloc(<number of elements>, <size of each element>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-0b8aa1a3-7567-491a-bd3a-7b6122b05cab",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "\"Avoid Using Weak or Non-Cryptographic Random Number Generators\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/tools/asan/heap_buffer_overflow/hip/vectorAdd-HBO.cpp"
+                },
+                "region": {
+                  "startLine": 74,
+                  "startColumn": 13,
+                  "endLine": 74,
+                  "endColumn": 21,
+                  "charOffset": 2365,
+                  "charLength": 8,
+                  "snippet": {
+                    "text": "rand() %",
+                    "rendered": {
+                      "text": "rand() %",
+                      "markdown": "`rand() %`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-e9075b52-9ff0-4677-8ae8-8cbdc42d2ad2",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "Detected Vulnerability in C Function (malloc)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/tools/ompt/veccopy-ompt-target-tracing/callbacks.h"
+                },
+                "region": {
+                  "startLine": 107,
+                  "startColumn": 12,
+                  "endLine": 107,
+                  "endColumn": 26,
+                  "charOffset": 4197,
+                  "charLength": 14,
+                  "snippet": {
+                    "text": "malloc(*bytes)",
+                    "rendered": {
+                      "text": "malloc(*bytes)",
+                      "markdown": "`malloc(*bytes)`"
+                    }
+                  },
+                  "sourceLanguage": "c"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If the value provided to malloc is the result of unsafe integer math, it can result in an exploitable condition. "
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "examples/tools/ompt/veccopy-ompt-target-tracing/callbacks.h"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 4197,
+                        "charLength": 14
+                      },
+                      "insertedContent": {
+                        "text": "calloc(<number of elements>, <size of each element>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-4ed8967f-357a-499c-8d83-e0e59523bdee",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Avoid seeding randomness using system time or a fixed value."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/tools/asan/heap_buffer_overflow/hip/vectorAdd-HBO.cpp"
+                },
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 2,
+                  "endLine": 72,
+                  "endColumn": 13,
+                  "charOffset": 2304,
+                  "charLength": 11,
+                  "snippet": {
+                    "text": "srand(time(",
+                    "rendered": {
+                      "text": "srand(time(",
+                      "markdown": "`srand(time(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Critical",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.WeakRandomness"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-39be8a03-6255-4a7c-a045-9151dfcd93e2",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "\"Detected Issue with C Function (malloc)\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/tools/roctracer/MatrixTranspose/MatrixTranspose.cpp"
+                },
+                "region": {
+                  "startLine": 80,
+                  "startColumn": 33,
+                  "endLine": 80,
+                  "endColumn": 59,
+                  "charOffset": 2491,
+                  "charLength": 26,
+                  "snippet": {
+                    "text": "malloc(NUM * sizeof(float)",
+                    "rendered": {
+                      "text": "malloc(NUM * sizeof(float)",
+                      "markdown": "`malloc(NUM * sizeof(float)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If the value provided to malloc is the result of unsafe integer math, it can result in an exploitable condition. "
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "examples/tools/roctracer/MatrixTranspose/MatrixTranspose.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 2491,
+                        "charLength": 26
+                      },
+                      "insertedContent": {
+                        "text": "calloc(<number of elements>, <size of each element>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-59dba1f6-390c-4c0d-84fa-28fe0922e4db",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "\"Detected Issue with C Function (malloc)\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/tools/roctracer/MatrixTranspose/MatrixTranspose.cpp"
+                },
+                "region": {
+                  "startLine": 79,
+                  "startColumn": 30,
+                  "endLine": 79,
+                  "endColumn": 56,
+                  "charOffset": 2429,
+                  "charLength": 26,
+                  "snippet": {
+                    "text": "malloc(NUM * sizeof(float)",
+                    "rendered": {
+                      "text": "malloc(NUM * sizeof(float)",
+                      "markdown": "`malloc(NUM * sizeof(float)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If the value provided to malloc is the result of unsafe integer math, it can result in an exploitable condition. "
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "examples/tools/roctracer/MatrixTranspose/MatrixTranspose.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 2429,
+                        "charLength": 26
+                      },
+                      "insertedContent": {
+                        "text": "calloc(<number of elements>, <size of each element>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-452d94e5-61f7-4b04-8647-fa112c0bf894",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "Detected Vulnerability in C Function (malloc)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/tools/asan/heap_buffer_overflow/hip/vectorAdd-HBO.cpp"
+                },
+                "region": {
+                  "startLine": 97,
+                  "startColumn": 20,
+                  "endLine": 97,
+                  "endColumn": 34,
+                  "charOffset": 2771,
+                  "charLength": 14,
+                  "snippet": {
+                    "text": "malloc(NBytes)",
+                    "rendered": {
+                      "text": "malloc(NBytes)",
+                      "markdown": "`malloc(NBytes)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If the value provided to malloc is the result of unsafe integer math, it can result in an exploitable condition. "
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "examples/tools/asan/heap_buffer_overflow/hip/vectorAdd-HBO.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 2771,
+                        "charLength": 14
+                      },
+                      "insertedContent": {
+                        "text": "calloc(<number of elements>, <size of each element>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-a4f4e6e6-7ef2-4404-b319-ebd16dc16429",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "Detected Vulnerability in C Function (malloc)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/tools/asan/heap_buffer_overflow/hip/vectorAdd-HBO.cpp"
+                },
+                "region": {
+                  "startLine": 96,
+                  "startColumn": 20,
+                  "endLine": 96,
+                  "endColumn": 34,
+                  "charOffset": 2735,
+                  "charLength": 14,
+                  "snippet": {
+                    "text": "malloc(NBytes)",
+                    "rendered": {
+                      "text": "malloc(NBytes)",
+                      "markdown": "`malloc(NBytes)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If the value provided to malloc is the result of unsafe integer math, it can result in an exploitable condition. "
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "examples/tools/asan/heap_buffer_overflow/hip/vectorAdd-HBO.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 2735,
+                        "charLength": 14
+                      },
+                      "insertedContent": {
+                        "text": "calloc(<number of elements>, <size of each element>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-f659cb64-1fe8-45ee-96da-277b2cdb39b3",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "\"Avoid Using Weak or Non-Cryptographic Random Number Generators\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/tools/asan/heap_buffer_overflow/hip/vectorAdd-HBO.cpp"
+                },
+                "region": {
+                  "startLine": 74,
+                  "startColumn": 13,
+                  "endLine": 74,
+                  "endColumn": 18,
+                  "charOffset": 2365,
+                  "charLength": 5,
+                  "snippet": {
+                    "text": "rand(",
+                    "rendered": {
+                      "text": "rand(",
+                      "markdown": "`rand(`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-33251de2-5324-48cc-a517-4e0365165fcd",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "\"Avoid Using Weak or Non-Cryptographic Random Number Generators\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/stress/many_regions/main.c"
+                },
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 11,
+                  "endLine": 21,
+                  "endColumn": 16,
+                  "charOffset": 391,
+                  "charLength": 5,
+                  "snippet": {
+                    "text": "rand(",
+                    "rendered": {
+                      "text": "rand(",
+                      "markdown": "`rand(`"
+                    }
+                  },
+                  "sourceLanguage": "c"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "Cryptography.PRNG.Weak"
+            ]
+          }
+        },
+        {
+          "ruleId": "glog-76a92d6a-d4ab-4a12-82e4-da23fee82339",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "\"Detected Issue with C Function (malloc)\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "examples/tools/roctracer/MatrixTranspose/MatrixTranspose.cpp"
+                },
+                "region": {
+                  "startLine": 78,
+                  "startColumn": 21,
+                  "endLine": 78,
+                  "endColumn": 47,
+                  "charOffset": 2370,
+                  "charLength": 26,
+                  "snippet": {
+                    "text": "malloc(NUM * sizeof(float)",
+                    "rendered": {
+                      "text": "malloc(NUM * sizeof(float)",
+                      "markdown": "`malloc(NUM * sizeof(float)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If the value provided to malloc is the result of unsafe integer math, it can result in an exploitable condition. "
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "examples/tools/roctracer/MatrixTranspose/MatrixTranspose.cpp"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 2370,
+                        "charLength": 26
+                      },
+                      "insertedContent": {
+                        "text": "calloc(<number of elements>, <size of each element>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        }
+      ],
+      "newlineSequences": [
+        "\r\n",
+        "\n"
+      ]
+    }
+  ]
+}
